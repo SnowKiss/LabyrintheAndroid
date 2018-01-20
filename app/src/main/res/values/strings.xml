@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Labyrinthe</string>
+    <string name="maze">Maze</string>
+    <string name="player">Player</string>
+</resources>
