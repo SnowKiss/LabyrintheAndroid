@@ -12,14 +12,12 @@
         android:id="@+id/maze"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/maze1"
         android:contentDescription="@string/maze"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        tools:layout_constraintLeft_creator="1"
+        android:src="@drawable/maze1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <ImageView
         android:id="@+id/player"

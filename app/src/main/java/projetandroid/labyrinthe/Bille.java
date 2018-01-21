@@ -77,8 +77,24 @@ public class Bille {
     }
 
     public void updateView()
-    {
+    {   
+        this.setVitX(this.getVitX()+this.getAccX());
+        this.setVitY(this.getVitY()+this.getAccY());
+        if(Math.abs(this.getVitX())<0.02f)
+            this.setVitX(0);
+        if(Math.abs(this.getVitY())<0.02f)
+            this.setVitY(0);
+
+        // on met à jour les coordonnées
+        this.setX(this.getX()+this.getVitX());
+        this.setY(this.getY()+this.getVitY());
+
+        // update la vue
         vue.setX(this.x);
         vue.setY(this.y);
+    }
+
+    public ImageView getVue() {
+        return vue;
     }
 }

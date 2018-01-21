@@ -1,6 +1,8 @@
 package projetandroid.labyrinthe;
 
+import android.app.Activity;
 import android.util.Log;
+import android.widget.ImageView;
 
 /**
  * Created by John on 19/01/2018.
@@ -14,9 +16,11 @@ public class PhysicManager {
     private boolean frottement = true;
     private float coefFrot = 0.992f;
 
+
     public PhysicManager(Bille bille, InputManager inputManager) {
         this.bille = bille;
         this.inputManager = inputManager;
+
     }
 
     public void moveBall()
@@ -31,18 +35,8 @@ public class PhysicManager {
             bille.setVitX(bille.getVitX()*coefFrot);
             bille.setVitY(bille.getVitY()*coefFrot);
         }
-        bille.setVitX(bille.getVitX()+bille.getAccX());
-        bille.setVitY(bille.getVitY()+bille.getAccY());
-        if(Math.abs(bille.getVitX())<0.02f)
-            bille.setVitX(0);
-        if(Math.abs(bille.getVitY())<0.02f)
-            bille.setVitY(0);
 
-        // on met à jour les coordonnées
-        bille.setX(bille.getX()+bille.getVitX());
-        bille.setY(bille.getY()+bille.getVitY());
-
-        // update la vue
-        bille.updateView();
     }
+
+
 }

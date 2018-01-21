@@ -14,6 +14,7 @@ public class GameActivity extends Activity {
     InputManager inputManager;
     Bille player;
     PhysicManager physicManager;
+    private CollisionManager collisionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +23,14 @@ public class GameActivity extends Activity {
         inputManager = new InputManager(this);
         player = new Bille((ImageView) findViewById(R.id.player));
         physicManager = new PhysicManager(player, inputManager);
+        this.collisionManager = new CollisionManager(player, (ImageView) findViewById(R.id.maze), this);
         final Handler handler=new Handler();
         handler.post(new Runnable(){
             @Override
             public void run() {
                 physicManager.moveBall();
+                collisionManager.applyCollisionEffect();
+                player.updateView();
                 handler.postDelayed(this,1); // set time here to refresh textView
             }
         });
